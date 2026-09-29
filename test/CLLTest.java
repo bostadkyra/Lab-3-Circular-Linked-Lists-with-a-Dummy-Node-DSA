@@ -1,6 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
 
-class DummyNodeLinkedListTest {
+class CLLTest {
 
     @org.junit.jupiter.api.Test
     void addItem() {

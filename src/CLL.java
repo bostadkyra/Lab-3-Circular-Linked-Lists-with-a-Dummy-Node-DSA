@@ -1,7 +1,8 @@
 import java.util.LinkedList;
 
-public class DummyNodeLinkedList {
-    public DummyNodeLinkedList(){
+public class CLL<T>{
+    public CLL(){
+
         //instantiate LL w/ dummy node
     }
 
