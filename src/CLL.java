@@ -1,13 +1,30 @@
 import java.util.LinkedList;
 
 public class CLL<T>{
-    public CLL(){
+    private Node head;
+    private Node tail;
 
-        //instantiate LL w/ dummy node
+    public CLL(){
+        head=null;
+        tail=head;
     }
 
-    public void addItem(){
+    public CLL(Node newNode){
+        //instantiate LL w/ dummy node
+        head=newNode;
+        tail=head;
+    }
 
+    public Node getHead(){
+        return head;
+    }
+
+    public Node getTail(){
+        return tail;
+    }
+
+    public void addItem(T data){
+        head = new Node(data, head);
     }
 
     public LinkedList showList(LinkedList listName){
