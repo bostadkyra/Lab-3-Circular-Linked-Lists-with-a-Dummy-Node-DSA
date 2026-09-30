@@ -49,6 +49,13 @@ public class CLL<T>{
     public boolean find(T data){
         Node<T> current = dummy.next;
         while (current != dummy){
+            if (current.data instanceof String && data instanceof String) {
+                String nodeData = ((String) current.data).trim();//removes spaces before and after String
+                String searchData = ((String) data).trim();
+                if (nodeData.equalsIgnoreCase(searchData)) {//ignores case of String
+                    return true;
+                }
+            }
             if (current.data.equals(data)){
                 return true;
             } else {
@@ -61,11 +68,22 @@ public class CLL<T>{
     public void remove(T data){
         Node<T> current = dummy;
         while(current.next != dummy){
-            if (current.next.data.equals(data)){
+            boolean shouldRemove = false;
+
+            if (current.next.data instanceof String && data instanceof String) {
+                String nodeData = ((String) current.next.data).trim();
+                String searchData = ((String) data).trim();
+                shouldRemove = nodeData.equalsIgnoreCase(searchData);
+            } else{
+                shouldRemove = current.next.data.equals(data);
+            }
+            if (shouldRemove){
                 current.next = current.next.next;//points over node to remove it (skips it)
+                return;
             } else {
                 current = current.next;
             }
         }
     }
 }
+

@@ -50,5 +50,22 @@ class CLLTest {
 
     @org.junit.jupiter.api.Test
     void remove() {
+        CLL<String> cll1 = new CLL<>();
+        CLL<String> cll2 = new CLL<>();
+
+        cll1.addItem("Word");
+        cll2.addItem("More ");
+        cll2.addItem("than ");
+        cll2.addItem("one ");
+        cll2.addItem("word.");
+
+        cll2.remove("word.");
+
+        assertTrue(cll1.find("Word"));
+        assertTrue(cll1.find("WORD"));
+        assertTrue(cll2.find("More "));
+        assertTrue(cll2.find(" than "));
+        assertTrue(cll2.find(" one"));
+        assertFalse(cll2.find("word."));
     }
 }
