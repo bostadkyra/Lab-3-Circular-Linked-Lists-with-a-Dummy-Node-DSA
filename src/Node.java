@@ -1,6 +1,6 @@
 public class Node<T> {
     protected T data;
-    protected Node next;
+    protected Node<T> next;
 
     private Node(){}
 
@@ -9,7 +9,7 @@ public class Node<T> {
         next=null;
     }
 
-    public Node(T data, Node next){
+    public Node(T data, Node<T> next){
         this.data=data;
         this.next=next;
     }
@@ -18,7 +18,7 @@ public class Node<T> {
         return data;
     }
 
-    public Node getNext(){
+    public Node<T> getNext(){
         return next;
     }
 
@@ -26,7 +26,7 @@ public class Node<T> {
         this.data=data;
     }
 
-    public void setNext(Node next){
+    public void setNext(Node<T> next){
         this.next=next;
     }
 }
