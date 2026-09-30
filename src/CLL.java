@@ -49,7 +49,7 @@ public class CLL<T>{
     public boolean find(T data){
         Node<T> current = dummy.next;
         while (current != dummy){
-            if (current.data == data){
+            if (current.data.equals(data)){
                 return true;
             } else {
                 current = current.next;
@@ -61,7 +61,7 @@ public class CLL<T>{
     public void remove(T data){
         Node<T> current = dummy;
         while(current.next != dummy){
-            if (current.next.data == data){
+            if (current.next.data.equals(data)){
                 current.next = current.next.next;//points over node to remove it (skips it)
             } else {
                 current = current.next;
