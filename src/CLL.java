@@ -24,16 +24,14 @@ public class CLL<T>{
     public void showList(){
         Node<T> current = dummy.next; //start after dummy otherwise null will be printed first
 
-        System.out.println("List: ");
         while(current != dummy){ //current.next not used here as it would skip printing the data of last node
-            System.out.println(current.data + ", ");
+            System.out.println(current.data + " ");
             current = current.next;
         }
         System.out.println(); //if nothing is in the LinkedList, a blank line is printed
     }
 
     public void showReverseList(){
-        System.out.println("Reverse List: ");
         showReverseListHelper(dummy.next);
         System.out.println();//if nothing is in the LinkedList, only blank line printed
     }

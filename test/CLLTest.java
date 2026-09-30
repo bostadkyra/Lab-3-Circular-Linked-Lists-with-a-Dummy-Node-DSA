@@ -1,3 +1,5 @@
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CLLTest {
@@ -23,10 +25,64 @@ class CLLTest {
 
     @org.junit.jupiter.api.Test
     void showList() {
+        CLL<Integer> cll1 = new CLL<>();
+        CLL<String> cll2 = new CLL<>();
+
+        cll1.addItem(1);
+        cll1.addItem(2);
+        cll1.addItem(3);
+
+        cll2.addItem("Hello");
+        cll2.addItem("World");
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);//redirects and captures system output
+
+        cll1.showList();
+        String cll1Output = outputStream.toString().trim();
+
+        outputStream.reset();//resets output stream for next test
+
+
+        cll2.showList();
+        String cll2Output = outputStream.toString().trim();
+
+        System.setOut(System.out);// restores System.out back to normal
+
+        assertEquals("1 \r\n2 \r\n3", cll1Output);//\r\n needed if running Windows OS
+        assertEquals("Hello \r\nWorld", cll2Output);
     }
 
     @org.junit.jupiter.api.Test
     void showReverseList() {
+        CLL<Integer> cll1 = new CLL<>();
+        CLL<String> cll2 = new CLL<>();
+
+        cll1.addItem(1);
+        cll1.addItem(2);
+        cll1.addItem(3);
+
+        cll2.addItem("Hello");
+        cll2.addItem("World");
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+
+        cll1.showReverseList();
+        String cll1Output = outputStream.toString().trim();
+
+        outputStream.reset();
+
+
+        cll2.showReverseList();
+        String cll2Output = outputStream.toString().trim();
+
+        System.setOut(System.out);
+
+        assertEquals("3 \r\n2 \r\n1", cll1Output);
+        assertEquals("World \r\nHello", cll2Output);
     }
 
     @org.junit.jupiter.api.Test
