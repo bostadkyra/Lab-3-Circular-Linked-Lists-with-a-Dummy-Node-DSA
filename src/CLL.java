@@ -4,7 +4,8 @@ public class CLL<T>{
     protected Node<T> dummy; //replaces head
 
     public CLL(){
-        dummy = new Node<T>(null, dummy); //empty list where dummy Node holds no value and points to itself
+        dummy = new Node<T>(null); //empty list where dummy Node holds no value and points to itself
+        dummy.next = dummy;
     }
 
     public void addItem(T data){
